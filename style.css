@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.4%;
+  --bg: #f3f5fc;
+
+  --white: #fff;
+  --dark-blue-dark-blue-100: #609ed4;
+  --dark-blue-dark-blue-200: #356ea9;
+  --dark-blue-dark-blue-300: #0a3871;
+  --dark-blue-dark-blue-400: #072b61;
+  --dark-blue-dark-blue-500: #052051;
+  --light-blue-light-blue-100: #f3f5fc;
+  --light-blue-light-blue-200: #eff1fa;
+  --light-blue-light-blue-300: #e9ecf8;
+  --light-blue-light-blue-400: #aab2d5;
+  --light-blue-light-blue-500: #757fb2;
+  --gray-gray-100: #ced4da;
+  --gray-gray-200: #adb5bd;
+  --gray-gray-300: #868e96;
+  --gray-gray-400: #495057;
+  --gray-gray-500: #343a40;
+}
+
+::placeholder {
+  font-family: "Inter", sans-serif;
+
+  color: var(--dark-blue-dark-blue-300);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  padding: 4rem;
+  background: var(--bg);
+  font-size: 1.6rem;
+}
+
+label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 150%;
+  color: var(--dark-blue-dark-blue-300);
+}
+
+textarea {
+  resize: none;
+  border: none;
+  background: transparent;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 150%;
+  color: var(--dark-blue-dark-blue-300);
+}
+
+header {
+  margin-bottom: 8rem;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  gap: 8rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.type-text-deco {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 68rem;
+  max-height: 87.4rem;
+}
+
+div.info-btns {
+  display: grid;
+}
+
+div.info-btns p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 1, 2rem;
+  line-height: 150%;
+  color: var(--gray-gray-400);
+}
+
+div.btns {
+  display: flex;
+  gap: 2.4rem;
+}
+
+div.btns button {
+  border: 1px solid var(--dark-blue-dark-blue-300);
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+  width: 32.8rem;
+  height: 6.7rem;
+  background: var(--dark-blue-dark-blue-300);
+  color: var(--white);
+  cursor: pointer;
+}
+div.btns button:nth-child(2) {
+  background: #d8dfe8;
+  color: var(--dark-blue-dark-blue-300);
+}
+
+div.write-text {
+  display: grid;
+}
+
+div.show-text {
+  box-shadow: 0 2.4rem 3.2rem -8px rgba(0, 0, 0, 0.08);
+  background: var(--white);
+  padding: 3.2rem;
+  border-radius: 3.2rem;
+  width: 40rem;
+  height: 94.4rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 4.1rem;
+}
+
+div.show-text textarea#encry-decry-text,
+div.show-text button {
+  display: none;
+}
+
+div.show-text.visible textarea#encry-decry-text,
+div.show-text.visible button {
+  display: initial;
+}
+
+div.char-text {
+  max-width: 29.2rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+}
+div.char-text h2 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 120%;
+  text-align: center;
+  color: var(--gray-gray-500);
+}
+div.char-text p {
+  font-weight: 400;
+  line-height: 150%;
+  text-align: center;
+  color: var(--gray-gray-400);
+  max-width: 33.6rem;
+}
+
+div.show-text.visible img,
+div.show-text.visible div.char-text {
+  display: none;
+}
+
+div.show-text.visible {
+  justify-content: space-between;
+}
+
+div.show-text.visible textarea#encry-decry-text {
+  font-size: 2.4rem;
+  line-height: 150%;
+  color: var(--gray-gray-400);
+  text-align: left;
+}
+
+div.show-text.visible button.copy {
+  border: 1px solid var(--dark-blue-dark-blue-300);
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+  width: 33.6rem;
+  height: 6.7rem;
+  color: var(--dark-blue-dark-blue-300);
+  cursor: pointer;
+}
