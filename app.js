@@ -22,11 +22,21 @@ const textArea = document.querySelector("textarea");
 const textEncryDecry = document.querySelector("textarea#encry-decry-text");
 const btnCopy = document.querySelector("button.copy");
 const divShowtext = document.querySelector("div.show-text");
+const btnTheme = document.querySelector("button.theme-toggle");
 
 btnEncry.addEventListener("click", () => {
   const text = textArea.value.toLowerCase();
-  textEncryDecry.textContent = makeCryptography(text);
-  divShowtext.classList.add("visible");
+  if (textArea.value == "") {
+    alert("Digite algo primeiro !");
+    textArea.setAttribute(
+      "placeholder",
+      "É necessário digitar algo aqui primeiro"
+    );
+  } else {
+    textEncryDecry.textContent = makeCryptography(text);
+    textArea.setAttribute("placeholder", "Digite o seu texto");
+    divShowtext.classList.add("visible");
+  }
 });
 
 btnDecry.addEventListener("click", () => {
@@ -47,3 +57,17 @@ function copy() {
 }
 
 btnCopy.addEventListener("click", copy);
+
+btnTheme.addEventListener("click", () => {
+  const body = document.querySelector("body");
+  const audiodark = new Audio("/assets/audios/darktheme.wav");
+  const audiowhite = new Audio("/assets/audios/whitetheme.wav");
+  body.classList.toggle("themed");
+  if (body.classList == "themed") {
+    btnTheme.classList.remove("theme-toggle--toggled");
+    audiodark.play();
+  } else {
+    audiowhite.play();
+    btnTheme.classList.add("theme-toggle--toggled");
+  }
+});
