@@ -149,6 +149,7 @@ body.themed header button svg g {
     background: var(--dark-blue-dark-blue-300);
     color: var(--white);
     cursor: pointer;
+    font-family: "Inter", sans-serif;
   }
   div.btns button:nth-child(2) {
     background: #d8dfe8;
