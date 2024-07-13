@@ -25,46 +25,67 @@ const divShowtext = document.querySelector("div.show-text");
 const btnTheme = document.querySelector("button.theme-toggle");
 
 btnEncry.addEventListener("click", () => {
+  const successAudio = new Audio("/assets/audios/success.wav");
+  const warningAudio = new Audio("/assets/audios/warning.wav");
   const text = textArea.value.toLowerCase();
   if (textArea.value == "") {
-    alert("Digite algo primeiro !");
-    textArea.setAttribute(
-      "placeholder",
-      "É necessário digitar algo aqui primeiro"
-    );
+    swal({
+      title: "Erro",
+      text: "Digite algo primeiro !",
+      icon: "warning",
+    });
+    warningAudio.play();
   } else {
     textEncryDecry.textContent = makeCryptography(text);
-    textArea.setAttribute("placeholder", "Digite o seu texto");
+    swal({
+      title: "Criptografado",
+      text: "Seu texto foi criptografado com sucesso !",
+      icon: "success",
+    });
     divShowtext.classList.add("visible");
+    successAudio.play();
   }
 });
 
 btnDecry.addEventListener("click", () => {
+  const successAudio = new Audio("/assets/audios/success.wav");
+  const warningAudio = new Audio("/assets/audios/warning.wav");
   const text = textArea.value.toLowerCase();
   if (textArea.value == "") {
-    alert("Digite algo primeiro !");
-    textArea.setAttribute(
-      "placeholder",
-      "É necessário digitar algo aqui primeiro"
-    );
+    swal({
+      title: "Erro",
+      text: "Digite algo primeiro !",
+      icon: "warning",
+    });
+    warningAudio.play();
   } else {
+    swal({
+      title: "Descriptografado",
+      text: "Seu texto foi descriptografado com sucesso !",
+      icon: "success",
+    });
     divShowtext.classList.add("visible");
     textEncryDecry.textContent = makeDecrypt(text);
+    successAudio.play();
   }
 });
 
-function copy() {
+btnCopy.addEventListener("click", ()=>{
+  const successAudio = new Audio("/assets/audios/success.wav");
   const tempData = document.createElement("textarea");
   tempData.value = textEncryDecry.textContent;
   document.body.appendChild(tempData);
   tempData.select();
   document.execCommand("copy");
   document.body.removeChild(tempData);
-  alert("Copiado com sucesso!!");
+  swal({
+    title: "Copiado",
+    text: "Seu texto foi copiado com sucesso !",
+    icon: "success",
+  });
   divShowtext.classList.remove("visible");
-}
-
-btnCopy.addEventListener("click", copy);
+  successAudio.play();
+});
 
 btnTheme.addEventListener("click", () => {
   const body = document.querySelector("body");
