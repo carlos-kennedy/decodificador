@@ -51,21 +51,17 @@ body.themed {
 body.themed ::placeholder {
   color: var(--dark-highlight);
 }
-body.themed div.info-btns p {
-  color: var(--dark-text-secondary);
-}
+
 body.themed textarea {
   color: var(--dark-highlight);
 }
+body.themed .swal-overlay--show-modal .swal-modal,
 body.themed div.show-text {
   background: var(--dark-background-secondary);
 }
-body.themed div.char-text h2 {
-  color: var(--dark-text-primary);
-}
-body.themed div.char-text p {
-  color: var(--dark-text-secondary);
-}
+body.themed .swal-modal .swal-text,
+body.themed div.info-btns p,
+body.themed div.char-text p,
 body.themed div.show-text.visible textarea#encry-decry-text {
   color: var(--dark-text-secondary);
 }
@@ -74,6 +70,31 @@ body.themed header svg.logo path,
 body.themed header button svg g {
   fill: var(--dark-highlight);
   stroke: var(--dark-highlight);
+}
+body.themed div.char-text h2,
+body.themed .swal-modal .swal-title {
+  color: var(--dark-text-primary);
+}
+
+body.themed .swal-button,
+body.themed .swal-icon--warning__body,
+body.themed .swal-icon--warning__dot {
+  background: var(--dark-highlight);
+}
+
+.swal-icon--warning {
+  animation-duration: 2s;
+}
+.swal-button,
+.swal-icon--warning__body,
+.swal-icon--warning__dot {
+  background: var(--dark-blue-dark-blue-300);
+}
+
+.swal-icon--success__hide-corners,
+.swal-icon--success:after,
+.swal-icon--success:before {
+  background: transparent;
 }
 
 @media (min-width: 300px) {
@@ -363,5 +384,15 @@ body.themed header button svg g {
 
   div.show-text.visible {
     justify-content: space-between;
+  }
+}
+
+@keyframes pulseWarning {
+  0% {
+    border-color: var(--dark-blue-dark-blue-100);
+  }
+
+  100% {
+    border-color: var(--dark-blue-dark-blue-300);
   }
 }
