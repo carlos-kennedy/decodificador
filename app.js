@@ -41,8 +41,16 @@ btnEncry.addEventListener("click", () => {
 
 btnDecry.addEventListener("click", () => {
   const text = textArea.value.toLowerCase();
-  textEncryDecry.textContent = makeDecrypt(text);
-  divShowtext.classList.add("visible");
+  if (textArea.value == "") {
+    alert("Digite algo primeiro !");
+    textArea.setAttribute(
+      "placeholder",
+      "É necessário digitar algo aqui primeiro"
+    );
+  } else {
+    divShowtext.classList.add("visible");
+    textEncryDecry.textContent = makeDecrypt(text);
+  }
 });
 
 function copy() {
