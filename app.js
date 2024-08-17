@@ -26,13 +26,13 @@ const btnTheme = document.querySelector("button.theme-toggle");
 
 textArea.addEventListener("input", (event) => {
   const textAreaValue = event.target.value;
-  const accentsRegex = /[ÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇÑA-Z]/;
+  const accentsRegex = /[áàâãäéèêëíìîïóòôõöúùûüçñÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇÑ]/;
   const lastChar = textAreaValue.charAt(textAreaValue.length - 1);
 
   const warningAudio = new Audio("/assets/audios/warning.wav");
 
   if (
-    accentsRegex.test(textAreaValue) &&
+    accentsRegex.test(lastChar) ||
     lastChar === lastChar.toUpperCase() &&
     isNaN(lastChar)
   ) {
