@@ -24,6 +24,28 @@ const btnCopy = document.querySelector("button.copy");
 const divShowtext = document.querySelector("div.show-text");
 const btnTheme = document.querySelector("button.theme-toggle");
 
+textArea.addEventListener("input", (event) => {
+  const textAreaValue = event.target.value;
+  const accentsRegex = /[ÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇÑA-Z]/;
+  const lastChar = textAreaValue.charAt(textAreaValue.length - 1);
+
+  const warningAudio = new Audio("/assets/audios/warning.wav");
+
+  if (
+    accentsRegex.test(textAreaValue) &&
+    lastChar === lastChar.toUpperCase() &&
+    isNaN(lastChar)
+  ) {
+    swal({
+      title: "Erro",
+      text: "Apenas palavras minúsculas e sem acento !",
+      icon: "warning",
+    });
+    textArea.value = "";
+    warningAudio.play();
+  }
+});
+
 btnEncry.addEventListener("click", () => {
   const successAudio = new Audio("/assets/audios/success.wav");
   const warningAudio = new Audio("/assets/audios/warning.wav");
@@ -70,7 +92,7 @@ btnDecry.addEventListener("click", () => {
   }
 });
 
-btnCopy.addEventListener("click", ()=>{
+btnCopy.addEventListener("click", () => {
   const successAudio = new Audio("/assets/audios/success.wav");
   const tempData = document.createElement("textarea");
   tempData.value = textEncryDecry.textContent;
